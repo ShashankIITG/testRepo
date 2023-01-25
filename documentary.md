@@ -86,4 +86,68 @@ git commit -m "performed git few commands on local machine till now" -m "perform
  2 files changed, 57 insertions(+)
  create mode 100644 documentary.md
 ```
+Till now the code is saved on working git repository, and not on online (e.g., github) repository.
 
+8. `git push origin main`: *here i faced an issue*
+~~So, i clone the repository using https, and now i want to push (or, update) repository into origin (i.e., short for original location) main (main branch) using `git push origin main`~~.
+There are series of problems in this:
+	- https based origin location was set. I used `git remote -v` to identify the origin. 
+```
+ git remote -v
+origin  https://github.com/ShashankIITG/testRepo.git (fetch)
+origin  https://github.com/ShashankIITG/testRepo.git (push)
+```
+	- i haven't set PTA (personal access token), which is used to authenticate and access github through https protocol. 
+Even after setting up PTA on remote(github) and local machine, i wasn't able to push repository to the origin because https is deprecated. It means that "https should work for cloning still, but not for pushing and doing anything maintenance like stuff".
+
+9. `git remote set-url origin git@github.com:ShashankIITG/testRepo.git `: this update ssh based origin location.
+
+10. `git push origin main`
+
+```
+$ git push origin main
+To github.com:ShashankIITG/testRepo.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'github.com:ShashankIITG/testRepo.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+There are 2 possible solution to this:
+	- first use `git pull` and then perform `git push`, such that the remote repo content is intergrated with my local machine repository.
+	- force push the local repo using `git push --force origin main`
+
+I will perform the 2nd one, since i am not aware of pull command so far. Also, i am working on test repository and there is nothing for me to loose.
+
+10. `git push --force origin main`: It push changes origin even though the clone was performed using https protocol. 
+
+```
+$ git push --force origin main
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (10/10), 2.36 KiB | 49.00 KiB/s, done.
+Total 10 (delta 2), reused 1 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), done.
+To github.com:ShashankIITG/testRepo.git
+ + 4fccb55...60c824f main -> main (forced update)
+```
+
+> Now, lets see what happen in origin (github repo).
+I could see all the commits i made, including the very first commit i made through github gui.
+
+11. `git status`: this shows that local branch is up to date with origin main
+```
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+```
+
+> Now i will save this file, stage, commit, and push this branch/repo to origin.
+12. `git add documentary.md && git commit -m "updated the documentary till 12th point which i am performing on local machine" && git push origin main`
+
+> Now, i won't be able to document the output of this here, since i am in chicken and egg condition. :sweat_smile:
