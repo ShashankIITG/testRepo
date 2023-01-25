@@ -89,14 +89,13 @@ git commit -m "performed git few commands on local machine till now" -m "perform
 Till now the code is saved on working git repository, and not on online (e.g., github) repository.
 
 8. `git push origin main`: *here i faced an issue*
-~~So, i clone the repository using https, and now i want to push (or, update) repository into origin (i.e., short for original location) main (main branch) using `git push origin main`~~.
-There are series of problems in this:
+~~So, i clone the repository using https, and now i want to push (or, update) repository into origin (i.e., short for original location) main (main branch) using `git push origin main`~~. There are series of problems in this:
 	- https based origin location was set. I used `git remote -v` to identify the origin. 
-```
- git remote -v
-origin  https://github.com/ShashankIITG/testRepo.git (fetch)
-origin  https://github.com/ShashankIITG/testRepo.git (push)
-```
+	```
+	$ git remote -v
+	origin  https://github.com/ShashankIITG/testRepo.git (fetch)
+	origin  https://github.com/ShashankIITG/testRepo.git (push)
+	```
 	- i haven't set PTA (personal access token), which is used to authenticate and access github through https protocol. 
 Even after setting up PTA on remote(github) and local machine, i wasn't able to push repository to the origin because https is deprecated. It means that "https should work for cloning still, but not for pushing and doing anything maintenance like stuff".
 
@@ -151,3 +150,11 @@ nothing to commit, working tree clean
 12. `git add documentary.md && git commit -m "updated the documentary till 12th point which i am performing on local machine" && git push origin main`
 
 > Now, i won't be able to document the output of this here, since i am in chicken and egg condition. :sweat_smile:
+
+13. `git revert 8d43b9b`: 8d43b9b is the commit hash which i found from github gui.
+	- `git log` is a command that can be used to find commit-hash. from here i found the last commit-hash was `8d43b9bffbe7296ca6ee5a7e2b706783d8881849`. So, github gui was should first few digits.
+
+`git revert 8d43b9b` command opens the default editor set for git, and  i have to write the new commit message after the commit-hash line.
+
+14. `git push origin main`: after commit i can directly push the commit. 
+> 13th and 14th step won't be present in revert commit, i have to make new commit for that.
