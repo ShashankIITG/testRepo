@@ -158,3 +158,23 @@ nothing to commit, working tree clean
 
 14. `git push origin main`: after commit i can directly push the commit. 
 > 13th and 14th step won't be present in revert commit, i have to make new commit for that.
+
+15. `git branch`: this will display all the branches
+
+```
+$ git branch
+*  main
+```
+
+16. `git checkout -b feature-fix_headings`: this will create and switch to the newly created branch.
+
+```
+$ git checkout -b feature-fix_headings
+Switched to a new branch 'feature-fix_headings'
+```
+
+> we can delete this branch, 1st move to different branch, and 2nd use `git branch -d feature-fix_headings.
+
+> I am updating the documentary while being in feature branch.
+
+17. 
