@@ -1,6 +1,6 @@
-This a document where i will notedown all the command i will work in sequential order.
+## This a document where i will notedown all the command i will work in sequential order.
 
-## 1. `git status`: It provide the status of all the files (e.g., changes to file content, new file created, commit) in the working repository
+1. `git status`: It provide the status of all the files (e.g., changes to file content, new file created, commit) in the working repository
 
 Here, I am working on the clone of testRepo in my local machine. The status command dictates that README.md file is modified.
 ```
@@ -81,7 +81,8 @@ Now, lets commit :D
 7. `git commit -m "{text}" -m "{additional text}"`: The first "text" is the main/major commit message and the 'additional text' is the optional description of the commit message.
 
 ```
-git commit -m "performed git few commands on local machine till now" -m "performed git clone, status, add, and restore commands. \n I have also created document where i wrote all the commands i performed."
+$ git commit -m "performed git few commands on local machine till now" -m "performed git clone, status, add, and restore commands. I have also created document where i wrote all the commands i performed."
+
 [main f52969e] performed git few commands on local machine till now
  2 files changed, 57 insertions(+)
  create mode 100644 documentary.md
@@ -177,4 +178,30 @@ Switched to a new branch 'feature-fix_headings'
 
 > I am updating the documentary while being in feature branch.
 
-17. 
+17. `git status`: this shows modified documentary file
+```
+$ git status
+On branch feature-fix_headings
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   documentary.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+18. `git add . && git commit -m "working on feature branch"`
+
+```
+$ git add . && git commit -m "working on feature branch"
+[feature-fix_headings 407d661] working on feature branch
+ 1 file changed, 21 insertions(+), 1 deletion(-)
+```
+
+19. `git checkout main`: switched to main branch, and noticed that the documentary updates are not there :wow:
+```
+$ git checkout feature-fix_headings
+Switched to branch 'feature-fix_headings'
+```
+
+> I have fixed the heading. now i will commit this.
