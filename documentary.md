@@ -205,3 +205,43 @@ Switched to branch 'feature-fix_headings'
 ```
 
 > I have fixed the heading. now i will commit this.
+
+> Now i will push this branch to github.
+
+20. `git push`: this provided some suggestion
+```
+$ git push
+fatal: The current branch feature-fix_headings has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin feature-fix_headings
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+```
+
+21. `git push --set-upstream origin feature-fix_headings`: in the last line of output, we can see feature branch is set up to track in origin?
+
+```
+$ git push --set-upstream origin feature-fix_headings
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 1.09 KiB | 101.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+remote:
+remote: Create a pull request for 'feature-fix_headings' on GitHub by visiting:
+remote:      https://github.com/ShashankIITG/testRepo/pull/new/feature-fix_headings
+remote:
+To github.com:ShashankIITG/testRepo.git
+ * [new branch]      feature-fix_headings -> feature-fix_headings
+branch 'feature-fix_headings' set up to track 'origin/feature-fix_headings'.
+```
+> Oooh, so this command is similar to normal push. It created a new branch with same name and pushed the commit to remote repo.
+
+> git seems to be suggesting to create pull request.
+
+![github ui shows feature-fix_headings had recent pushes 2 minutes ago](git_push_feature_branch.png)
+
