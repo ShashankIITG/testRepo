@@ -1,6 +1,6 @@
-## This a document where i will notedown all the command i will work in sequential order.
+This a document where i will notedown all the command i will work in sequential order.
 
-1. `git status`: It provide the status of all the files (e.g., changes to file content, new file created, commit) in the working repository
+## 1. `git status`: It provide the status of all the files (e.g., changes to file content, new file created, commit) in the working repository
 
 Here, I am working on the clone of testRepo in my local machine. The status command dictates that README.md file is modified.
 ```
@@ -81,24 +81,22 @@ Now, lets commit :D
 7. `git commit -m "{text}" -m "{additional text}"`: The first "text" is the main/major commit message and the 'additional text' is the optional description of the commit message.
 
 ```
-git commit -m "performed git few commands on local machine till now" -m "performed git clone, status, add, and restore commands. I have also created document where i wrote all the commands i performed."
+git commit -m "performed git few commands on local machine till now" -m "performed git clone, status, add, and restore commands. \n I have also created document where i wrote all the commands i performed."
 [main f52969e] performed git few commands on local machine till now
  2 files changed, 57 insertions(+)
  create mode 100644 documentary.md
 ```
-> Till now the code is saved on working git repository, and not on online (e.g., github) repository.
+Till now the code is saved on working git repository, and not on online (e.g., github) repository.
 
-8. `git push origin main`: *here i faced an issue.*
-
+8. `git push origin main`: *here i faced an issue*
 ~~So, i clone the repository using https, and now i want to push (or, update) repository into origin (i.e., short for original location) main (main branch) using `git push origin main`~~.
-
 There are series of problems in this:
 	- https based origin location was set. I used `git remote -v` to identify the origin. 
-	```
-	$ git remote -v
-	origin  https://github.com/ShashankIITG/testRepo.git (fetch)
-	origin  https://github.com/ShashankIITG/testRepo.git (push)
-	```
+```
+ git remote -v
+origin  https://github.com/ShashankIITG/testRepo.git (fetch)
+origin  https://github.com/ShashankIITG/testRepo.git (push)
+```
 	- i haven't set PTA (personal access token), which is used to authenticate and access github through https protocol. 
 Even after setting up PTA on remote(github) and local machine, i wasn't able to push repository to the origin because https is deprecated. It means that "https should work for cloning still, but not for pushing and doing anything maintenance like stuff".
 
@@ -153,20 +151,3 @@ nothing to commit, working tree clean
 12. `git add documentary.md && git commit -m "updated the documentary till 12th point which i am performing on local machine" && git push origin main`
 
 > Now, i won't be able to document the output of this here, since i am in chicken and egg condition. :sweat_smile:
-
-```
-$ git add documentary.md && git commit -m "updated the documentary till 12th point which i am performing on local machine" && git push origin main
-[main e8ede39] updated the documentary till 12th point which i am performing on local machine
- 1 file changed, 64 insertions(+)
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 4 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 1.77 KiB | 258.00 KiB/s, done.
-Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-To github.com:ShashankIITG/testRepo.git
-   60c824f..e8ede39  main -> main
-```
-
-13. > There are some formatting and line issue in the document. Fixed it, and push the local branch to origin again.
