@@ -14,4 +14,8 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights
 and the repository exists.
 ```
-
+## Start ssh agent and add key
+```
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+```
